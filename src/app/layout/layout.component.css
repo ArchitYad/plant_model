@@ -1,0 +1,17 @@
+/* Style for the Customer Reviews section */
+.my-5 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .card-body {
+    padding: 20px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+}
+
+.fa-3x {
+    color: #28a745; /* Change icon color if needed */
+}

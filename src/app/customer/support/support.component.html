@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Plant Maintenance Support</h2>
+  <p>Enter your username to get maintenance tips for your plants:</p>
+
+  <form [formGroup]="supportForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Enter your username">
+      <div *ngIf="supportForm.get('username')?.invalid && supportForm.get('username')?.touched" class="text-danger">
+        Username is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="supportForm.invalid">Get Tips</button>
+  </form>
+
+  <div *ngIf="supportDetails" class="mt-4">
+    <h4>Maintenance Tips</h4>
+    <ul>
+      <li *ngFor="let tip of supportDetails">
+        <strong>{{ tip.plant }} - {{ tip.disease }}</strong>: {{ tip.tips }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+</div>

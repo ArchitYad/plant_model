@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="text-center mb-4">Manage Model Data</h2>
+
+  <form [formGroup]="modelForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="modelFile" class="form-label">Upload Model File</label>
+      <input type="file" id="modelFile" class="form-control" (change)="onFileChange($event)" accept=".h5" required>
+      <div *ngIf="modelForm.get('modelFile')?.invalid && modelForm.get('modelFile')?.touched" class="text-danger">
+        Model file is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Model</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+    {{ successMessage }}
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+    {{ errorMessage }}
+  </div>
+</div>

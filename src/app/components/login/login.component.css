@@ -1,0 +1,8 @@
+.container {
+  max-width: 500px; /* Limit the width of the form */
+  margin: 0 auto; /* Center the form */
+}
+
+.btn-block {
+  width: 100%; /* Full-width button */
+}

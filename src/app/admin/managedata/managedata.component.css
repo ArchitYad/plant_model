@@ -1,0 +1,17 @@
+.container {
+    max-width: 600px; /* Set a maximum width for the form container */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Add padding around the container */
+  }
+  
+  h2 {
+    color: #333; /* Set a color for the heading */
+  }
+  
+  .btn {
+    margin-top: 10px; /* Space between the button and the input above */
+  }
+  
+  .alert {
+    margin-top: 20px; /* Space between the form and the alert messages */
+  }  

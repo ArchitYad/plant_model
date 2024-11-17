@@ -1,0 +1,52 @@
+.contact-area {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-content img {
+  max-width: 150px;
+}
+
+.contact-content p {
+  font-size: 16px;
+  color: #666;
+}
+
+.contact-social ul {
+  padding-left: 0;
+}
+
+.contact-social ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.contact-social ul li a {
+  color: #333;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.contact-social ul li a:hover {
+  color: #007bff;
+}
+
+.hr {
+  width: 100%;
+  border-top: 2px solid #ddd;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .contact-content img {
+    max-width: 120px;
+  }
+
+  .contact-content h6 {
+    font-size: 14px;
+  }
+
+  .contact-social ul li a {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>Customer Data</h2>
+  
+    <div *ngFor="let customer of customers">
+      <p>{{ customer.name }} ({{ customer.email }})</p>
+      <button (click)="viewCustomerDetails(customer.id)">View Details</button>
+    </div>
+  </div>  
