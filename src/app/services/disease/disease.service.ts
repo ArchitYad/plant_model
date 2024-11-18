@@ -6,18 +6,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DiseaseService {
-  private detectUrl = 'http://localhost:3000/api/detect/diseases'; // Update this with your API endpoint
+  private detectUrl = 'http://localhost:3000/api/detect/diseases'; 
 
   constructor(private http: HttpClient) {}
 
-  // This method checks if the user has a premium plan, you can adjust this based on your logic
+  
   isPremium(): boolean {
-    // You can add actual logic to determine if the user is premium
-    return true; // Placeholder
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return false;  
+    }
+
+    try {
+      const decodedToken = JSON.parse(atob(token.split('.')[1])); 
+      return decodedToken.plan === 'Premium'; 
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return false; 
+    }
   }
 
   detectDisease(formData: FormData): Observable<any> {
-    const token = localStorage.getItem('token'); // Get JWT from localStorage
+    const token = localStorage.getItem('token'); 
     console.log(token);
     if (!token) {
       return new Observable((observer) => {
@@ -27,7 +37,7 @@ export class DiseaseService {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    // Send the form data with the headers containing the JWT token
+    
     return this.http.post(this.detectUrl, formData, { headers });
   }
 }

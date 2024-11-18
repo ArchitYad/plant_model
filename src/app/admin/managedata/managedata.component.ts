@@ -16,7 +16,7 @@ export class ManagedataComponent {
 
   constructor(private fb: FormBuilder, private modelService: ModelService) {
     this.modelForm = this.fb.group({
-      modelFile: [null, Validators.required] // Adjust based on your model file input
+      modelFile: [null, Validators.required] 
     });
   }
 
@@ -38,7 +38,7 @@ export class ManagedataComponent {
         next: (response) => {
           this.successMessage = 'Model updated successfully!';
           this.errorMessage = null;
-          this.modelForm.reset(); // Reset the form after successful submission
+          this.modelForm.reset(); 
         },
         error: (error) => {
           this.errorMessage = 'Failed to update model. Please try again.';

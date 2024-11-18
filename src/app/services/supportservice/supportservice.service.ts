@@ -6,15 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SupportService {
-  private apiUrl = 'http://localhost:3000/api/support'; // Replace with your actual backend URL
+  private apiUrl = 'http://localhost:3000/api/support'; 
 
   constructor(private http: HttpClient) { }
 
-  // Fetch maintenance tips for a given username
+  
   getSupportDetails(username: string): Observable<any> {
-    const token = localStorage.getItem('token');  // Get the token from localStorage or your auth state management
+    const token = localStorage.getItem('token');  
 
-    // If token exists, attach it to the request headers
+    
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get(`${this.apiUrl}/tips/${username}`, { headers });

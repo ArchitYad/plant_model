@@ -1,4 +1,4 @@
-/* Basic styling for the landing page */
+
 .landing-page {
     text-align: center;
     padding: 20px;
@@ -44,7 +44,7 @@
     color: white;
   }
   
-  /* About Section */
+  
   .about {
     padding: 40px 20px;
   }
@@ -58,7 +58,7 @@
     font-size: 1.1em;
   }
   
-  /* Features Section */
+  
   .features {
     display: flex;
     justify-content: space-around;

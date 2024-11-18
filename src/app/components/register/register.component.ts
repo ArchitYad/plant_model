@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';  // Import Router to navigate to other pages
+import { Router } from '@angular/router';  
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Ensure FormsModule is imported for two-way data binding
+  imports: [CommonModule, FormsModule], 
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -15,9 +15,9 @@ export class RegisterComponent {
   username: string = '';
   email: string = '';
   password: string = '';
-  role: string = 'customer'; // Set default role to 'customer'
+  role: string = 'customer'; 
 
-  constructor(private http: HttpClient, private router: Router) {}  // Inject Router
+  constructor(private http: HttpClient, private router: Router) {}  
 
   onRegister() {
     if (this.username && this.email && this.password && this.role) {
@@ -32,18 +32,18 @@ export class RegisterComponent {
         .subscribe({
           next: (response) => {
             console.log('User registered successfully!', response);
-            alert('Registration successful!');  // Provide feedback to the user
+            alert('Registration successful!');  
 
-            // After successful registration, navigate to home page
-            this.router.navigate(['/home']);  // Redirect to home page
+            
+            this.router.navigate(['/home']);  
           },
           error: (error) => {
             console.error('Error registering user:', error);
-            alert('Registration failed. Please try again.'); // Provide feedback to the user
+            alert('Registration failed. Please try again.'); 
           }
         });
     } else {
-      alert('Please fill out all fields');  // Basic form validation
+      alert('Please fill out all fields');  
     }
   }
 }

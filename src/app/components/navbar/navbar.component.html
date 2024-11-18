@@ -35,10 +35,10 @@
         </ng-container>
       </ul>
       <div class="d-flex">
-        <!-- Show register and login buttons when the user is not logged in -->
+        
         <button class="btn btn-primary me-2" *ngIf="!isLoggedIn" routerLink="/register">Register</button>
         <button class="btn btn-success" *ngIf="!isLoggedIn" routerLink="/login">Login</button>
-        <!-- Show logout button when the user is logged in -->
+        
         <button class="btn btn-outline-danger" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
       </div>
     </div>

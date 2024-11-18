@@ -16,30 +16,30 @@ export class DetectComponent {
   isPremium = false;
   limitReached = false;
   selectedFile: File | null = null;
-  loading = false;  // To manage the loading state
-  errorMessage = '';  // Variable to hold error messages
+  loading = false;  
+  errorMessage = '';  
 
   constructor(private diseaseService: DiseaseService) {
     this.isPremium = this.diseaseService.isPremium();
   }
 
-  // Handle file selection
+  
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      this.errorMessage = '';  // Clear previous errors when a new file is selected
+      this.errorMessage = '';  
     }
   }
 
-  // Handle disease detection
+  
   onDetect() {
     if (this.selectedFile) {
-      this.loading = true;  // Set loading to true before making the API call
+      this.loading = true;  
       const formData = new FormData();
       formData.append('image', this.selectedFile);
 
-      // Call the disease detection service
+      
       this.diseaseService.detectDisease(formData).subscribe({
         next: (result) => {
           this.loading = false;
@@ -59,16 +59,16 @@ export class DetectComponent {
         }
       });
     } else {
-      this.errorMessage = 'Please select a file first!';  // Show error if no file is selected
+      this.errorMessage = 'Please select a file first!';  
     }
   }
 
-  // Clear detection result and errors (optional)
+ 
   clearDetection() {
     this.diseaseDetected = false;
     this.disease = {};
     this.limitReached = false;
     this.selectedFile = null;
-    this.errorMessage = '';  // Clear any previous errors
+    this.errorMessage = ''; 
   }
 }

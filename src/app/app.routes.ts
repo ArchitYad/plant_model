@@ -59,12 +59,12 @@ export const routes: Routes = [
       { path: 'checkcustomer', component: CheckCustomerComponent }
     ]
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default to home page
-  { path: '**', redirectTo: '/home' }  // Wildcard route for invalid URLs
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
+  { path: '**', redirectTo: '/home' }  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // Ensure routing is setup here
+  imports: [RouterModule.forRoot(routes)], 
   exports: [RouterModule]
 })
 

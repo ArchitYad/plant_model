@@ -8,6 +8,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
-    // other providers like guards, services, etc.
+    
   ]
 }).catch(err => console.error(err));

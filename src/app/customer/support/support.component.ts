@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SupportComponent {
   supportForm: FormGroup;
-  supportDetails: any;  // Variable for storing maintenance details and tips
+  supportDetails: any;  
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
@@ -28,7 +28,7 @@ export class SupportComponent {
       this.supportService.getSupportDetails(username).subscribe({
         next: (response) => {
           if (response.success) {
-            this.supportDetails = response.history; // Store history with maintenance tips
+            this.supportDetails = response.history; 
             this.successMessage = 'Maintenance details retrieved successfully!';
             this.errorMessage = null;
           } else {

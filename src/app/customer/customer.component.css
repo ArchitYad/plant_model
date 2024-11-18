@@ -1,0 +1,28 @@
+.footer .quote {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2a9d8f; 
+    display: inline-block;
+    animation: horizontalMove 6s ease-in-out infinite;
+  }
+  
+  @keyframes horizontalMove {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(-100%); 
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  .footer {
+    background-color: #264653; 
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .footer p {
+    margin: 0;
+  }  

@@ -9,6 +9,6 @@ export class PlanComponent {
 
   upgradePlan(): void {
     alert('Your plan has been upgraded to Premium!');
-    // Optionally, you can navigate to the same route or another page if needed
+    
   }
 }

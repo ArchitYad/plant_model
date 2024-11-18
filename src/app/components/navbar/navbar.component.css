@@ -1,62 +1,59 @@
-/* Logo Styles */
 .logo {
-  height: 40px; /* Adjust the height of the logo */
-  width: auto; /* Maintain aspect ratio */
-  margin-right: 10px; /* Space between the logo and text, if any */
+  height: 40px; 
+  width: auto; 
+  margin-right: 10px; 
 }
 
-/* Navbar Styles */
+
 .navbar {
   padding: 1rem;
 }
 
 .navbar-brand {
   display: flex;
-  align-items: center; /* Center logo vertically */
+  align-items: center; 
 }
 
-/* Navigation Links Styles */
+
 .navbar-nav .nav-link {
   font-size: 1.1rem;
-  margin: 0 1rem; /* Add horizontal spacing between links */
-  color: #333; /* Default color for links */
-  cursor: pointer; /* Ensure links appear clickable */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s, text-decoration 0.3s; /* Smooth transitions */
+  margin: 0 1rem; 
+  color: #333; 
+  cursor: pointer; 
+  text-decoration: none; 
+  transition: color 0.3s, text-decoration 0.3s; 
 }
 
-/* Hover State for Links */
 .navbar-nav .nav-link:hover {
-  color: #007bff; /* Bootstrap primary color on hover */
-  text-decoration: underline; /* Add underline on hover */
+  color: #007bff; 
+  text-decoration: underline; 
 }
 
-/* Active State for Links (Optional: for indicating the current page) */
 .navbar-nav .nav-link.active {
-  color: #0056b3; /* Darker color to indicate active page */
-  text-decoration: underline; /* Optionally, keep underline */
+  color: #0056b3; 
+  text-decoration: underline; 
 }
 
-/* Button Styles */
+
 .btn {
-  border-radius: 20px; /* Rounded buttons */
+  border-radius: 20px; 
 }
 
 .btn-primary, .btn-success, .btn-outline-danger {
-  transition: background-color 0.3s, color 0.3s; /* Smooth color transition */
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 .btn-primary:hover, .btn-success:hover, .btn-outline-danger:hover {
-  opacity: 0.9; /* Slightly transparent on hover */
+  opacity: 0.9; 
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
   .navbar-nav {
-      margin-top: 0.5rem; /* Add spacing above nav items on mobile */
+      margin-top: 0.5rem; 
   }
   
   .navbar-nav .nav-link {
-      margin: 0.5rem 0; /* Add vertical spacing between links on smaller screens */
+      margin: 0.5rem 0; 
   }
 }

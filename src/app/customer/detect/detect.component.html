@@ -1,49 +1,49 @@
 <div class="container">
   <h2>Detect Plant Disease</h2>
 
-  <!-- Form to upload plant image -->
+  
   <form (ngSubmit)="onDetect()" [ngClass]="{ 'was-validated': diseaseForm.submitted }" #diseaseForm="ngForm">
     <div class="mb-3">
       <label for="plantImage" class="form-label">Upload Plant Image:</label>
       <input type="file" class="form-control" id="plantImage" (change)="onFileSelected($event)" required [ngClass]="{ 'is-invalid': !selectedFile && diseaseForm.submitted }">
 
-      <!-- Display error message if file is not selected -->
+      
       <div class="invalid-feedback" *ngIf="!selectedFile && diseaseForm.submitted">
         Please upload a plant image.
       </div>
     </div>
 
-    <!-- Detect button (disabled if no file or loading) -->
+    
     <button type="submit" class="btn btn-primary" [disabled]="!selectedFile || loading">Detect Disease</button>
   </form>
 
-  <!-- Show loading message/spinner while detection is in progress -->
+  
   <div *ngIf="loading" class="d-flex justify-content-center mt-4">
     <div class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </div>
 
-  <!-- Display Disease Prediction if detected -->
+  
   <div *ngIf="diseaseDetected" class="disease-info mt-4">
     <h3>Disease Detected: {{ disease.disease }}</h3>
     <h4>Plant: {{ disease.plant }}</h4>
     <p *ngIf="isPremium">Cure: {{ disease.cure }}</p>
     <p *ngIf="!isPremium">Upgrade to Premium to see the cure details.</p>
 
-    <!-- Premium tips if user is premium -->
+    
     <div *ngIf="isPremium && disease.tips" class="premium-tips">
       <h5>Care Tips for {{ disease.disease }}:</h5>
       <p>{{ disease.tips }}</p>
     </div>
   </div>
 
-  <!-- Show error if detection limit is reached -->
+  
   <div *ngIf="limitReached" class="mt-4 alert alert-warning">
     You have reached your detection limit. Upgrade to Premium for more detections.
   </div>
 
-  <!-- Error message container (can be used for generic error messages like server errors) -->
+  
   <div *ngIf="errorMessage" class="alert alert-danger mt-4">
     {{ errorMessage }}
   </div>

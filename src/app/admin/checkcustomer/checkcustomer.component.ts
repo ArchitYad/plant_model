@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customers/customers.service';
-import { AuthService } from '../../services/auth/auth.service'; // Make sure AuthService is imported
+import { AuthService } from '../../services/auth/auth.service'; 
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CheckCustomerComponent implements OnInit {
   customers: any[] = [];
-  errorMessage: string = '';  // To show error messages
+  errorMessage: string = '';  
 
   constructor(
     private customerService: CustomerService, 
@@ -26,30 +26,29 @@ export class CheckCustomerComponent implements OnInit {
   }
 
   getCustomers() {
-    // Check if the user has the role of admin
+    
     const role = this.authService.getRole();
 
     if (role !== 'admin') {
-      // If the user is not an admin, redirect them or show an error
+      
       this.errorMessage = 'You are not authorized to view this page.';
-      this.router.navigate(['/']);  // Redirect to home page or any other page
+      this.router.navigate(['/']);  
       return;
     }
 
-    this.customerService.getCustomers().subscribe(
-      (data: any) => {
+    this.customerService.getCustomers().subscribe({
+      next: (data: any) => {
         this.customers = data;
       },
-      (error) => {
+      error: (error) => {
         this.errorMessage = 'Failed to load customer data.';
-        console.error(error);  // Optionally log the error for debugging
+        console.error(error);  
       }
-    );
+    });
   }
 
   viewCustomerDetails(customerId: string) {
-    // Logic to view detailed customer data
-    // This can route to another page or open a modal for more details
+    
     this.router.navigate([`/customer/${customerId}`]);
   }
 }

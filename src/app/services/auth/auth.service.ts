@@ -12,28 +12,28 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // Login method
+  
   login(credentials: { email: string, password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
-  // Decode token using JwtHelperService
+  
   decodeToken(token: string): any {
-    return this.jwtHelper.decodeToken(token); // Using JwtHelperService to decode the token
+    return this.jwtHelper.decodeToken(token); 
   }
 
-  // Check if the user is logged in
+  
   isLoggedIn(): boolean {
     const token = this.getToken();
     return !!token && !this.jwtHelper.isTokenExpired(token); 
   }
 
-  // Get JWT token from local storage
+  
   getToken(): string | null {
     return localStorage.getItem('token');
   }
 
-  // Get user's role from the token
+  
   getRole(): string | null {
     const token = this.getToken();
     if (token) {
@@ -43,22 +43,22 @@ export class AuthService {
     return null;
   }
 
-  // Get user's plan from the token (Free or Premium)
+  
   getPlan(): string | null {
     const token = this.getToken();
     if (token) {
       const decodedToken = this.decodeToken(token);
-      return decodedToken?.plan || 'Free';  // Default to 'Free' if no plan is found
+      return decodedToken?.plan || 'Free';  
     }
-    return 'Free';  // Default to 'Free' if no token is found
+    return 'Free';  
   }
 
-  // Update user's plan (e.g., after successful payment)
+  
   updatePlan(planType: string): Observable<any> {
     return this.http.put(`${this.apiUrl}/update-plan`, { plan: planType });
   }
 
-  // Log out the user by removing the token from local storage
+  
   logout() {
     localStorage.removeItem('token');
   }
